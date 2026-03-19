@@ -1,0 +1,58 @@
+{
+  "name": "MKS Reward – Play & Earn",
+  "short_name": "MKS Reward",
+  "description": "Watch ads, refer friends, and compete to earn amazing rewards!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#1e40af",
+  "orientation": "portrait",
+  "lang": "hi",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/generated/mks-reward-icon-192.dim_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/generated/mks-reward-icon-512.dim_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "games", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Watch Ads",
+      "short_name": "Watch",
+      "description": "Watch ads and earn rewards",
+      "url": "/?action=watch",
+      "icons": [
+        {
+          "src": "/assets/generated/mks-reward-icon-192.dim_192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Leaderboard",
+      "short_name": "Leaderboard",
+      "description": "View weekly leaderboard",
+      "url": "/?action=leaderboard",
+      "icons": [
+        {
+          "src": "/assets/generated/mks-reward-icon-192.dim_192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
+
