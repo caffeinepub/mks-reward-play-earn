@@ -12,21 +12,13 @@ import SocialLinks from "../components/SocialLinks";
 import WalletCard from "../components/WalletCard";
 import WatchAdModal from "../components/WatchAdModal";
 import { Button } from "../components/ui/button";
-import { useAuth } from "../hooks/useAuth";
-import { useGetCallerUserProfile } from "../hooks/useQueries";
 
 export default function Dashboard() {
-  const { isAuthenticated } = useAuth();
-  const { data: userProfile } = useGetCallerUserProfile();
   const [watchAdOpen, setWatchAdOpen] = useState(false);
   const [referralOpen, setReferralOpen] = useState(false);
   const [leaderboardOpen, setLeaderboardOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [liveStatusOpen, setLiveStatusOpen] = useState(false);
-
-  if (!isAuthenticated) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#0a1628] via-[#0f2847] to-[#1a3a5c]">
@@ -36,10 +28,10 @@ export default function Dashboard() {
         {/* Welcome Section */}
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-            स्वागत है, {userProfile?.name || "Champion"}! 🎮
+            Welcome, Champion! 🎮
           </h1>
-          <p className="text-cyan text-lg">
-            Welcome! खेलो, जीतो, और कमाओ! | Play, Win & Earn! 💰
+          <p className="text-cyan-400 text-lg">
+            Play, Win &amp; Earn Real Rewards! 💰
           </p>
         </div>
 
@@ -54,8 +46,8 @@ export default function Dashboard() {
         {/* Social Links - Positioned below ad banner */}
         <div className="mt-8">
           <SocialLinks
-            youtubeUrl="https://www.youtube.com/@mksreward"
-            instagramUrl="https://www.instagram.com/mksreward"
+            youtubeUrl="https://youtube.com/@mksmister"
+            instagramUrl="https://www.instagram.com/mister_gamer_786"
           />
         </div>
 
@@ -63,29 +55,29 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <ActionCard
             icon={<Tv className="w-8 h-8" />}
-            title="विज्ञापन देखें | Watch Ads"
-            description="Watch ads and earn points | विज्ञापन देखो और पॉइंट्स कमाओ"
+            title="Watch Ads"
+            description="Watch ads and earn points instantly"
             gradient="from-gold/20 to-gold/5"
             onClick={() => setWatchAdOpen(true)}
           />
           <ActionCard
             icon={<Users className="w-8 h-8" />}
-            title="रेफर करें | Refer & Earn"
-            description="Invite friends, get bonus | दोस्तों को आमंत्रित करो, बोनस पाओ"
+            title="Refer & Earn"
+            description="Invite friends, get bonus points"
             gradient="from-cyan/20 to-cyan/5"
             onClick={() => setReferralOpen(true)}
           />
           <ActionCard
             icon={<Trophy className="w-8 h-8" />}
-            title="लीडरबोर्ड | Leaderboard"
-            description="View top players and compete | टॉप खिलाड़ी देखो और प्रतिस्पर्धा करो"
+            title="Leaderboard"
+            description="View top players and compete for prizes"
             gradient="from-purple-500/20 to-purple-500/5"
             onClick={() => setLeaderboardOpen(true)}
           />
           <ActionCard
             icon={<MessageCircle className="w-4 h-4" />}
-            title="संपर्क करें | Contact Us"
-            description="Any questions? Send us a message | कोई सवाल? हमें संदेश भेजें"
+            title="Contact Us"
+            description="Any questions? Send us a message"
             gradient="from-blue-500/20 to-blue-500/5"
             onClick={() => setContactOpen(true)}
           />
@@ -102,10 +94,10 @@ export default function Dashboard() {
               <Activity className="w-6 h-6 text-green-400 animate-pulse" />
               <div className="text-left">
                 <h3 className="text-white font-bold text-lg">
-                  🔴 Live Status Report | लाइव स्थिति रिपोर्ट
+                  🔴 Live Status Report
                 </h3>
                 <p className="text-green-400 text-sm">
-                  View real-time app status | वास्तविक समय ऐप स्थिति देखें
+                  View real-time app status and features
                 </p>
               </div>
             </div>
