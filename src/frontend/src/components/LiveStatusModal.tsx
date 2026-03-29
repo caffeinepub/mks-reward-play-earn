@@ -16,49 +16,43 @@ export default function LiveStatusModal({
   const { data: status, isLoading, refetch, isFetching } = useGetLiveStatus();
 
   const getStatusIcon = (statusText: string) => {
-    if (statusText.includes("ACTIVE")) {
+    if (statusText.includes("ACTIVE"))
       return <CheckCircle2 className="w-6 h-6 text-green-400" />;
-    }
-    if (statusText.includes("WARNING")) {
+    if (statusText.includes("WARNING"))
       return <AlertCircle className="w-6 h-6 text-yellow-400" />;
-    }
     return <XCircle className="w-6 h-6 text-red-400" />;
   };
 
   const getStatusColor = (statusText: string) => {
-    if (statusText.includes("ACTIVE")) {
-      return "text-green-400";
-    }
-    if (statusText.includes("WARNING")) {
-      return "text-yellow-400";
-    }
+    if (statusText.includes("ACTIVE")) return "text-green-400";
+    if (statusText.includes("WARNING")) return "text-yellow-400";
     return "text-red-400";
   };
 
   const statusItems = status
     ? [
         {
-          label: "Authentication System | प्रमाणीकरण प्रणाली",
+          label: "Authentication System",
           value: status.authenticationSystem,
           description: "Gmail + Password login system",
         },
         {
-          label: "Ad System | विज्ञापन प्रणाली",
+          label: "Ad System",
           value: status.adSystem,
           description: "AdMob integration & rewarded ads",
         },
         {
-          label: "Leaderboard | लीडरबोर्ड",
+          label: "Leaderboard",
           value: status.leaderboard,
           description: "Weekly rankings & competition",
         },
         {
-          label: "Referral System | रेफरल प्रणाली",
+          label: "Referral System",
           value: status.referralSystem,
           description: "Friend invites & bonus tracking",
         },
         {
-          label: "Backend Connection | बैकएंड कनेक्शन",
+          label: "Backend Connection",
           value: status.backendConnection,
           description: "Motoko backend on Internet Computer",
         },
@@ -70,15 +64,14 @@ export default function LiveStatusModal({
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-[#0a1628] via-[#0f2847] to-[#1a3a5c] border-2 border-gold/30">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-gold via-cyan to-gold bg-clip-text text-transparent">
-            🔴 Live Status Report | लाइव स्थिति रिपोर्ट
+            🔴 Live Status Report
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {/* App URL Section */}
           <div className="bg-navy/40 rounded-lg p-4 border border-cyan/20">
             <h3 className="text-sm font-semibold text-cyan mb-2">
-              Deployed App URL | तैनात ऐप URL
+              Deployed App URL
             </h3>
             <a
               href="https://balanced-amber-3yc-draft.caffeine.xyz"
@@ -90,7 +83,6 @@ export default function LiveStatusModal({
             </a>
           </div>
 
-          {/* Overall Status */}
           {status && (
             <div className="bg-navy/40 rounded-lg p-4 border border-gold/30">
               <div className="flex items-center justify-between">
@@ -98,7 +90,7 @@ export default function LiveStatusModal({
                   {getStatusIcon(status.overallStatus)}
                   <div>
                     <h3 className="text-lg font-bold text-white">
-                      Overall Status | समग्र स्थिति
+                      Overall Status
                     </h3>
                     <p
                       className={`text-sm font-semibold ${getStatusColor(status.overallStatus)}`}
@@ -116,27 +108,23 @@ export default function LiveStatusModal({
                   <RefreshCw
                     className={`w-4 h-4 mr-2 ${isFetching ? "animate-spin" : ""}`}
                   />
-                  Refresh | रिफ्रेश
+                  Refresh
                 </Button>
               </div>
             </div>
           )}
 
-          {/* Loading State */}
           {isLoading && (
             <div className="text-center py-8">
               <RefreshCw className="w-8 h-8 animate-spin text-cyan mx-auto mb-2" />
-              <p className="text-white">
-                Loading status... | स्थिति लोड हो रही है...
-              </p>
+              <p className="text-white">Loading status...</p>
             </div>
           )}
 
-          {/* Status Items */}
           {!isLoading && statusItems.length > 0 && (
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-white mb-3">
-                Active Modules | सक्रिय मॉड्यूल
+                Active Modules
               </h3>
               {statusItems.map((item) => (
                 <div
@@ -164,10 +152,9 @@ export default function LiveStatusModal({
             </div>
           )}
 
-          {/* Social Media Links Section */}
           <div className="bg-navy/40 rounded-lg p-4 border border-gold/30">
             <h3 className="text-lg font-bold text-white mb-3">
-              Connected Social Media | जुड़े सोशल मीडिया
+              Connected Social Media
             </h3>
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -195,10 +182,9 @@ export default function LiveStatusModal({
             </div>
           </div>
 
-          {/* Security & Backend Section */}
           <div className="bg-navy/40 rounded-lg p-4 border border-cyan/20">
             <h3 className="text-lg font-bold text-white mb-3">
-              Security & Backend | सुरक्षा और बैकएंड
+              Security &amp; Backend
             </h3>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-start gap-2">
@@ -213,7 +199,7 @@ export default function LiveStatusModal({
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <span>Role-based access control (Admin & User roles)</span>
+                <span>Role-based access control (Admin &amp; User roles)</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -224,11 +210,8 @@ export default function LiveStatusModal({
             </div>
           </div>
 
-          {/* PWA Features Section */}
           <div className="bg-navy/40 rounded-lg p-4 border border-gold/30">
-            <h3 className="text-lg font-bold text-white mb-3">
-              PWA Features | PWA सुविधाएं
-            </h3>
+            <h3 className="text-lg font-bold text-white mb-3">PWA Features</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -249,31 +232,9 @@ export default function LiveStatusModal({
             </div>
           </div>
 
-          {/* App Responsiveness */}
           <div className="bg-navy/40 rounded-lg p-4 border border-cyan/20">
             <h3 className="text-lg font-bold text-white mb-3">
-              App Responsiveness | ऐप प्रतिक्रिया
-            </h3>
-            <div className="space-y-2 text-sm text-gray-300">
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <span>Optimized for mobile devices (Android & iOS)</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <span>Fast loading with service worker caching</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <span>Bilingual support (Hindi & English)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* AdMob Integration Details */}
-          <div className="bg-navy/40 rounded-lg p-4 border border-gold/30">
-            <h3 className="text-lg font-bold text-white mb-3">
-              AdMob Integration | AdMob एकीकरण
+              AdMob Integration
             </h3>
             <div className="space-y-2 text-sm text-gray-300">
               <div className="flex items-start gap-2">
@@ -295,17 +256,15 @@ export default function LiveStatusModal({
             </div>
           </div>
 
-          {/* Timestamp */}
           <div className="text-center text-xs text-gray-400 pt-2">
             Last updated:{" "}
-            {new Date().toLocaleString("en-IN", {
+            {new Date().toLocaleString("en-US", {
               dateStyle: "medium",
               timeStyle: "short",
             })}
           </div>
         </div>
 
-        {/* Ad Banner at bottom */}
         <div className="mt-4">
           <AdBanner />
         </div>

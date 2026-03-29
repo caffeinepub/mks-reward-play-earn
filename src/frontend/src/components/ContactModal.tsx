@@ -26,11 +26,7 @@ export default function ContactModal({
     e.preventDefault();
     if (name.trim() && email.trim() && message.trim()) {
       submitForm.mutate(
-        {
-          name: name.trim(),
-          email: email.trim(),
-          message: message.trim(),
-        },
+        { name: name.trim(), email: email.trim(), message: message.trim() },
         {
           onSuccess: () => {
             setName("");
@@ -48,25 +44,24 @@ export default function ContactModal({
       <DialogContent className="bg-navy/95 backdrop-blur-md border-white/20 text-white max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl text-center">
-            Contact Us 📧 | संपर्क करें
+            Contact Us 📧
           </DialogTitle>
           <p className="text-white/70 text-center text-sm">
-            Any questions or issues? Send us a message! | कोई सवाल या समस्या? हमें
-            संदेश भेजें!
+            Have a question or issue? Send us a message!
           </p>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="contact-name" className="text-white">
-              Your Name | आपका नाम
+              Your Name
             </Label>
             <Input
               id="contact-name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your name | अपना नाम दर्ज करें"
+              placeholder="Enter your name"
               required
               className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
             />
@@ -74,7 +69,7 @@ export default function ContactModal({
 
           <div>
             <Label htmlFor="contact-email" className="text-white">
-              Email Address | ईमेल पता
+              Email Address
             </Label>
             <Input
               id="contact-email"
@@ -89,13 +84,13 @@ export default function ContactModal({
 
           <div>
             <Label htmlFor="contact-message" className="text-white">
-              Message | संदेश
+              Message
             </Label>
             <Textarea
               id="contact-message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Write your message here... | अपना संदेश यहाँ लिखें..."
+              placeholder="Write your message here..."
               required
               rows={5}
               className="bg-white/10 border-white/20 text-white placeholder:text-white/50 resize-none"
@@ -108,13 +103,10 @@ export default function ContactModal({
             className="w-full bg-gradient-to-r from-cyan to-cyan/80 hover:from-cyan/90 hover:to-cyan/70 text-navy font-bold"
           >
             <Send className="w-5 h-5 mr-2" />
-            {submitForm.isPending
-              ? "Sending... | भेजा जा रहा है..."
-              : "Send Message | संदेश भेजें"}
+            {submitForm.isPending ? "Sending..." : "Send Message"}
           </Button>
         </form>
 
-        {/* Ad Banner */}
         <div className="pt-4 border-t border-white/10">
           <AdBanner />
         </div>

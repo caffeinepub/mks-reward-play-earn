@@ -52,13 +52,8 @@ export default function WatchAdModal({
   }, [isWatching, progress]);
 
   const handleStartWatching = () => {
-    // In production, this would trigger the AdMob rewarded ad
-    // using the REWARDED_AD_UNIT_ID: ca-app-pub-4734392712984503/9742721395
-    // For now, we simulate the ad experience
     setIsWatching(true);
-    toast.info("Ad शुरू हो रहा है... | Ad starting...", {
-      duration: 2000,
-    });
+    toast.info("Ad starting...", { duration: 2000 });
   };
 
   const handleClaimReward = () => {
@@ -74,9 +69,7 @@ export default function WatchAdModal({
               </p>
             </div>
           </div>,
-          {
-            duration: 4000,
-          },
+          { duration: 4000 },
         );
         onOpenChange(false);
       },
@@ -95,7 +88,7 @@ export default function WatchAdModal({
                 <Sparkles className="w-6 h-6 text-gold animate-pulse" />
               </>
             ) : (
-              <>Watch Ad & Earn | विज्ञापन देखें और कमाएं</>
+              <>Watch Ad &amp; Earn Points</>
             )}
           </DialogTitle>
         </DialogHeader>
@@ -121,11 +114,11 @@ export default function WatchAdModal({
               </div>
               <div className="bg-gradient-to-br from-gold/20 to-gold/5 rounded-lg p-4 border border-gold/30">
                 <p className="text-white/90 text-sm">
-                  📺 <strong>Ad dekho aur points kamao!</strong> Har ad ke liye
-                  rewards milenge.
+                  📺 <strong>Watch ads and earn points!</strong> You get rewards
+                  for every ad you watch.
                 </p>
                 <p className="text-white/70 text-xs mt-2">
-                  Watch the complete ad to earn your reward | पूरा विज्ञापन देखें
+                  Watch the complete ad to earn your reward
                 </p>
               </div>
               <Button
@@ -133,7 +126,7 @@ export default function WatchAdModal({
                 className="bg-gradient-to-r from-gold to-gold/80 hover:from-gold/90 hover:to-gold/70 text-navy font-bold text-lg py-6 px-8"
               >
                 <Play className="w-6 h-6 mr-2" />
-                Start Watching | शुरू करें
+                Start Watching
               </Button>
             </div>
           )}
@@ -159,15 +152,12 @@ export default function WatchAdModal({
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-white/70">
-                    Ad chal raha hai... | Ad playing...
-                  </span>
+                  <span className="text-white/70">Ad playing...</span>
                   <span className="text-gold font-bold">{progress}%</span>
                 </div>
                 <Progress value={progress} className="h-3" />
                 <p className="text-white/60 text-xs text-center">
-                  Please wait until the ad completes | कृपया विज्ञापन पूरा होने तक
-                  प्रतीक्षा करें
+                  Please wait until the ad completes
                 </p>
               </div>
             </div>
@@ -190,14 +180,12 @@ export default function WatchAdModal({
 
               <div className="space-y-2">
                 <p className="text-2xl md:text-3xl text-white font-bold">
-                  Congratulations! बधाई हो! 🎊
+                  Congratulations! 🎊
                 </p>
                 <p className="text-white/80 text-lg">
                   Ad successfully completed!
                 </p>
-                <p className="text-white/70">
-                  Ab apne points claim karo aur earning karo!
-                </p>
+                <p className="text-white/70">Claim your reward now!</p>
               </div>
 
               <div className="bg-gradient-to-br from-gold/20 to-cyan/20 rounded-lg p-6 border border-gold/30">
@@ -205,9 +193,7 @@ export default function WatchAdModal({
                   <Coins className="w-8 h-8 text-gold" />
                   <p className="text-3xl font-bold text-gold">+100 Points</p>
                 </div>
-                <p className="text-white/70 text-sm">
-                  Reward ready to claim | रिवॉर्ड क्लेम करने के लिए तैयार
-                </p>
+                <p className="text-white/70 text-sm">Reward ready to claim</p>
               </div>
 
               <Button
@@ -223,7 +209,7 @@ export default function WatchAdModal({
                 ) : (
                   <>
                     <Coins className="w-6 h-6 mr-2" />
-                    Claim Reward 💰 | रिवॉर्ड क्लेम करें
+                    Claim Reward 💰
                   </>
                 )}
               </Button>

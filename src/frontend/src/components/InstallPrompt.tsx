@@ -16,39 +16,21 @@ export default function InstallPrompt() {
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-
-      // Check if user has dismissed the prompt before
       const dismissed = localStorage.getItem("pwa-install-dismissed");
       if (!dismissed) {
-        // Show prompt after 5 seconds
-        setTimeout(() => {
-          setShowPrompt(true);
-        }, 5000);
+        setTimeout(() => setShowPrompt(true), 5000);
       }
     };
-
     window.addEventListener("beforeinstallprompt", handler);
-
-    // Check if already installed
-    if (window.matchMedia("(display-mode: standalone)").matches) {
+    if (window.matchMedia("(display-mode: standalone)").matches)
       setShowPrompt(false);
-    }
-
-    return () => {
-      window.removeEventListener("beforeinstallprompt", handler);
-    };
+    return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const handleInstall = async () => {
     if (!deferredPrompt) return;
-
     deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-
-    if (outcome === "accepted") {
-      console.log("User accepted the install prompt");
-    }
-
+    await deferredPrompt.userChoice;
     setDeferredPrompt(null);
     setShowPrompt(false);
   };
@@ -67,16 +49,11 @@ export default function InstallPrompt() {
           <div className="flex-shrink-0 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 p-2">
             <Download className="h-5 w-5 text-white" />
           </div>
-
           <div className="flex-1 space-y-2">
             <h3 className="font-bold text-white">Install MKS Reward App</h3>
             <p className="text-sm text-gray-300">
-              होम स्क्रीन पर ऐप इंस्टॉल करें और बेहतर अनुभव पाएं!
+              Install the app on your home screen for a better experience!
             </p>
-            <p className="text-xs text-gray-400">
-              Install app on home screen for better experience!
-            </p>
-
             <div className="flex gap-2 pt-2">
               <Button
                 onClick={handleInstall}
@@ -93,7 +70,6 @@ export default function InstallPrompt() {
               </Button>
             </div>
           </div>
-
           <button
             type="button"
             onClick={handleDismiss}

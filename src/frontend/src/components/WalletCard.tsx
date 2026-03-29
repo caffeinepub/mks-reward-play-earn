@@ -13,10 +13,8 @@ export default function WalletCard() {
             <Wallet className="w-6 h-6 text-navy" />
           </div>
           <div>
-            <h2 className="text-white text-xl font-bold">
-              आपका वॉलेट | Your Wallet
-            </h2>
-            <p className="text-cyan text-sm">Total Earnings | कुल कमाई</p>
+            <h2 className="text-white text-xl font-bold">Your Wallet</h2>
+            <p className="text-cyan text-sm">Total Earnings</p>
           </div>
         </div>
 
@@ -24,9 +22,7 @@ export default function WalletCard() {
           <div className="bg-white/5 rounded-lg p-4 border border-white/10">
             <div className="flex items-center gap-2 mb-2">
               <Wallet className="w-5 h-5 text-gold" />
-              <p className="text-white/70 text-sm">
-                Wallet Points | वॉलेट पॉइंट्स
-              </p>
+              <p className="text-white/70 text-sm">Wallet Points</p>
             </div>
             <p className="text-3xl font-bold text-gold">
               {stats?.walletPoints?.toString() || "0"}
@@ -36,7 +32,7 @@ export default function WalletCard() {
           <div className="bg-white/5 rounded-lg p-4 border border-white/10">
             <div className="flex items-center gap-2 mb-2">
               <Tv className="w-5 h-5 text-cyan" />
-              <p className="text-white/70 text-sm">Ads Watched | विज्ञापन देखे</p>
+              <p className="text-white/70 text-sm">Ads Watched</p>
             </div>
             <p className="text-3xl font-bold text-cyan">
               {stats?.totalAdsWatched?.toString() || "0"}
@@ -46,7 +42,7 @@ export default function WalletCard() {
           <div className="bg-white/5 rounded-lg p-4 border border-white/10">
             <div className="flex items-center gap-2 mb-2">
               <Users className="w-5 h-5 text-purple-400" />
-              <p className="text-white/70 text-sm">Referrals | रेफरल</p>
+              <p className="text-white/70 text-sm">Referrals</p>
             </div>
             <p className="text-3xl font-bold text-purple-400">
               {stats?.successfulReferrals?.toString() || "0"}

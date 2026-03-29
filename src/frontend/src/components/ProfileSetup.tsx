@@ -8,7 +8,6 @@ import { Label } from "./ui/label";
 export default function ProfileSetup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
   const createProfile = useCreateUserProfile();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,14 +30,14 @@ export default function ProfileSetup() {
             Welcome to MKS Reward! 🎉
           </CardTitle>
           <p className="text-white/70 mt-2">
-            Apna profile setup karo aur earning shuru karo
+            Set up your profile and start earning
           </p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="name" className="text-white">
-                Aapka Naam | Your Name
+                Your Name
               </Label>
               <Input
                 id="name"
@@ -52,7 +51,7 @@ export default function ProfileSetup() {
             </div>
             <div>
               <Label htmlFor="email" className="text-white">
-                Email Address | ईमेल पता
+                Email Address
               </Label>
               <Input
                 id="email"
@@ -67,11 +66,9 @@ export default function ProfileSetup() {
             <Button
               type="submit"
               disabled={createProfile.isPending}
-              className="w-full bg-gradient-to-r from-gold to-gold/80 hover:from-gold/90 hover:to-gold/70 text-navy font-bold disabled:opacity-50"
+              className="w-full bg-gradient-to-r from-gold to-gold/80 hover:from-gold/90 hover:to-gold/70 text-navy font-bold"
             >
-              {createProfile.isPending
-                ? "Creating... | बन रहा है..."
-                : "Start Earning! | कमाई शुरू करें! 🚀"}
+              {createProfile.isPending ? "Setting up..." : "Start Earning 🚀"}
             </Button>
           </form>
         </CardContent>

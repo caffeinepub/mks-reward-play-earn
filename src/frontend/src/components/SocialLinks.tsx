@@ -14,14 +14,13 @@ export default function SocialLinks({
     <Card className="bg-gradient-to-br from-cyan/20 to-gold/10 border-cyan/30 backdrop-blur-sm shadow-xl shadow-cyan/20">
       <CardContent className="p-6">
         <h2 className="text-white text-xl font-bold mb-4 text-center">
-          हमसे जुड़ें 🌟
+          Follow Us 🌟
         </h2>
         <p className="text-white/70 text-sm text-center mb-6">
-          हमारे सोशल मीडिया चैनल्स पर फॉलो करें
+          Follow our social media channels
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* YouTube Link */}
           <a
             href={youtubeUrl}
             target="_blank"
@@ -36,12 +35,11 @@ export default function SocialLinks({
                 <p className="text-white font-semibold group-hover:text-gold transition-colors">
                   YouTube
                 </p>
-                <p className="text-white/60 text-sm">हमारा चैनल देखें</p>
+                <p className="text-white/60 text-sm">Watch our channel</p>
               </div>
             </div>
           </a>
 
-          {/* Instagram Link */}
           <a
             href={instagramUrl}
             target="_blank"
@@ -56,7 +54,7 @@ export default function SocialLinks({
                 <p className="text-white font-semibold group-hover:text-cyan transition-colors">
                   Instagram
                 </p>
-                <p className="text-white/60 text-sm">हमें फॉलो करें</p>
+                <p className="text-white/60 text-sm">Follow us</p>
               </div>
             </div>
           </a>

@@ -20,27 +20,19 @@ export default function AdBanner() {
 
   useEffect(() => {
     const loadAdScript = () => {
-      // Check if script already exists
       if (document.querySelector('script[src*="adsbygoogle.js"]')) {
         initializeAd();
         return;
       }
-
       const script = document.createElement("script");
       script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADMOB_APP_ID}`;
       script.async = true;
       script.crossOrigin = "anonymous";
-
-      script.onload = () => {
-        initializeAd();
-      };
-
+      script.onload = () => initializeAd();
       script.onerror = () => {
-        console.warn("AdMob script failed to load, showing placeholder");
         setAdStatus("error");
         setShowPlaceholder(true);
       };
-
       document.head.appendChild(script);
     };
 
@@ -54,22 +46,15 @@ export default function AdBanner() {
             setAdStatus("loaded");
           }
         }
-      } catch (error) {
-        console.warn("Ad initialization failed:", error);
+      } catch (_error) {
         setAdStatus("error");
         setShowPlaceholder(true);
       }
     };
 
-    const timer = setTimeout(() => {
-      loadAdScript();
-    }, 300);
-
+    const timer = setTimeout(() => loadAdScript(), 300);
     const fallbackTimer = setTimeout(() => {
-      if (adStatus === "loading") {
-        console.warn("Ad loading timeout, showing placeholder");
-        setShowPlaceholder(true);
-      }
+      if (adStatus === "loading") setShowPlaceholder(true);
     }, 5000);
 
     return () => {
@@ -100,7 +85,7 @@ export default function AdBanner() {
                 className="bg-navy border-gold/30 text-white max-w-xs"
               >
                 <p className="text-sm">
-                  Real ads will display here | असली विज्ञापन यहाँ दिखेंगे
+                  Real ads will display here once AdMob is activated
                 </p>
               </TooltipContent>
             </Tooltip>
@@ -110,25 +95,23 @@ export default function AdBanner() {
         <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[2/1]">
           <img
             src="/assets/generated/ad-placeholder.dim_800x600.png"
-            alt="Ad Placeholder | विज्ञापन प्लेसहोल्डर"
+            alt="Ad Placeholder"
             className="w-full h-full object-cover"
           />
-
           <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-
           <div className="absolute bottom-4 left-4 right-4">
             <p className="text-white/90 text-sm md:text-base font-medium drop-shadow-lg">
-              📢 Advertisement Space | विज्ञापन स्थान
+              📢 Advertisement Space
             </p>
             <p className="text-white/70 text-xs md:text-sm mt-1 drop-shadow-lg">
-              Support MKS Reward by viewing ads | विज्ञापन देखकर सपोर्ट करें
+              Support MKS Reward by viewing ads
             </p>
           </div>
         </div>
 
         <div className="bg-gradient-to-r from-gold/20 to-cyan/20 px-4 py-2 border-t border-white/10">
           <p className="text-white/80 text-xs text-center">
-            💡 Watch ads and earn points | विज्ञापन देखें और पॉइंट्स कमाएं
+            💡 Watch ads and earn points
           </p>
         </div>
       </div>
@@ -140,11 +123,10 @@ export default function AdBanner() {
       {adStatus === "loading" && (
         <div className="absolute top-2 left-2 z-10 flex items-center gap-2">
           <span className="bg-cyan/90 text-navy px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">
-            Loading Ad | लोड हो रहा है...
+            Loading Ad...
           </span>
         </div>
       )}
-
       <div
         ref={adContainerRef}
         className="relative w-full min-h-[250px] md:min-h-[90px] flex items-center justify-center p-4"
@@ -158,12 +140,11 @@ export default function AdBanner() {
           data-full-width-responsive="true"
         />
       </div>
-
       <div className="bg-gradient-to-r from-gold/20 to-cyan/20 px-4 py-2 border-t border-white/10">
         <div className="flex items-center justify-center gap-2">
           <AlertCircle className="w-3 h-3 text-white/60" />
           <p className="text-white/80 text-xs text-center">
-            Support MKS Reward | MKS Reward को सपोर्ट करें
+            Support MKS Reward
           </p>
         </div>
       </div>

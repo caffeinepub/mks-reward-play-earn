@@ -1,6 +1,8 @@
 import { Award, Medal, Trophy } from "lucide-react";
-import { useGetLeaderboard } from "../hooks/useQueries";
-import { useGetCallerUserProfile } from "../hooks/useQueries";
+import {
+  useGetCallerUserProfile,
+  useGetLeaderboard,
+} from "../hooks/useQueries";
 import AdBanner from "./AdBanner";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { ScrollArea } from "./ui/scroll-area";
@@ -27,9 +29,7 @@ export default function LeaderboardModal({
     return <span className="text-white/70 font-bold">#{rank}</span>;
   };
 
-  const isCurrentUser = (name: string) => {
-    return userProfile?.name === name;
-  };
+  const isCurrentUser = (name: string) => userProfile?.name === name;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -37,10 +37,10 @@ export default function LeaderboardModal({
         <DialogHeader>
           <DialogTitle className="text-2xl text-center flex items-center justify-center gap-2">
             <Trophy className="w-7 h-7 text-gold" />
-            Weekly Leaderboard | साप्ताहिक लीडरबोर्ड
+            Weekly Leaderboard
           </DialogTitle>
           <p className="text-white/70 text-center text-sm">
-            Top 100 players | Compete and win! | प्रतिस्पर्धा करो और जीतो!
+            Top 100 players — Compete and win!
           </p>
         </DialogHeader>
 
@@ -68,7 +68,6 @@ export default function LeaderboardModal({
                 leaderboard.map((entry, index) => {
                   const rank = Number(entry.rank || BigInt(index + 1));
                   const isCurrent = isCurrentUser(entry.name);
-
                   return (
                     <div
                       key={`entry-${entry.rank}-${entry.name}`}
@@ -89,7 +88,7 @@ export default function LeaderboardModal({
                             className={`font-bold ${isCurrent ? "text-gold" : "text-white"}`}
                           >
                             {entry.name}
-                            {isCurrent && " (You | आप)"}
+                            {isCurrent && " (You)"}
                           </p>
                           <p className="text-white/70 text-sm">Rank #{rank}</p>
                         </div>
@@ -109,7 +108,7 @@ export default function LeaderboardModal({
                 <div className="text-center py-12">
                   <Trophy className="w-16 h-16 text-white/30 mx-auto mb-4" />
                   <p className="text-white/70">
-                    Leaderboard is empty. Be the first player! | पहले खिलाड़ी बनो!
+                    Leaderboard is empty. Be the first player!
                   </p>
                 </div>
               )}
@@ -117,7 +116,6 @@ export default function LeaderboardModal({
           )}
         </ScrollArea>
 
-        {/* Ad Banner at bottom */}
         <div className="pt-4 border-t border-white/10">
           <AdBanner />
         </div>
