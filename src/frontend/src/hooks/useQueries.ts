@@ -37,14 +37,10 @@ export function useCreateUserProfile() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["currentUserProfile"] });
-      toast.success(
-        "Profile created successfully! | प्रोफाइल सफलतापूर्वक बनाया गया! ✅",
-      );
+      toast.success("Profile created successfully! ✅");
     },
     onError: (error: Error) => {
-      toast.error(
-        error.message || "Failed to create profile | प्रोफाइल बनाने में विफल",
-      );
+      toast.error(error.message || "Failed to create profile");
     },
   });
 }
@@ -67,7 +63,7 @@ export function useWatchAd() {
       queryClient.invalidateQueries({ queryKey: ["walletStats"] });
     },
     onError: (error: Error) => {
-      toast.error(error.message || "Ad watching failed | विज्ञापन देखने में समस्या");
+      toast.error(error.message || "Ad watching failed. Please try again.");
     },
   });
 }
@@ -102,12 +98,10 @@ export function useSubmitContactForm() {
       return actor.submitContactForm(name, email, message);
     },
     onSuccess: () => {
-      toast.success(
-        "Message sent successfully! We will reply soon. | संदेश भेज दिया गया! हम जल्दी जवाब देंगे 📧",
-      );
+      toast.success("Message sent successfully! We will reply soon. 📧");
     },
     onError: (error: Error) => {
-      toast.error(error.message || "Failed to send message | संदेश भेजने में विफल");
+      toast.error(error.message || "Failed to send message. Please try again.");
     },
   });
 }
@@ -126,12 +120,12 @@ export function useClaimReferral() {
       queryClient.invalidateQueries({ queryKey: ["currentUserProfile"] });
       queryClient.invalidateQueries({ queryKey: ["walletStats"] });
       toast.success(
-        `Referral claimed! +${_points.toString()} points earned! | रेफरल क्लेम हो गया! 🎁`,
+        `Referral claimed! +${_points.toString()} points earned! 🎁`,
       );
     },
     onError: (error: Error) => {
       toast.error(
-        error.message || "Failed to claim referral | रेफरल क्लेम करने में समस्या",
+        error.message || "Failed to claim referral. Please try again.",
       );
     },
   });
