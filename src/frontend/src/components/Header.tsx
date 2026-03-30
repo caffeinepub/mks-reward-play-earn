@@ -5,11 +5,11 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <img
             src="/assets/generated/mks-reward-logo.dim_400x400.png"
-            alt="MKS Reward"
+            alt="MKS Rewards"
             className="w-12 h-12 object-contain"
           />
           <div>
-            <h1 className="text-xl font-bold text-white">MKS Reward</h1>
+            <h1 className="text-xl font-bold text-white">MKS Rewards</h1>
             <p className="text-xs text-cyan">Play &amp; Earn</p>
           </div>
         </div>

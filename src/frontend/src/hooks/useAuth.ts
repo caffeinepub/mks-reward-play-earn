@@ -53,7 +53,7 @@ export function useAuth() {
       const verified = await actor.verifyGmailPassword(email, INTERNAL_TOKEN);
       if (verified) {
         setAuth(email);
-        toast.success("Welcome to MKS Reward! 🎮");
+        toast.success("Welcome to MKS Rewards! 🎮");
       } else {
         toast.error("Login failed. Please try again.");
       }

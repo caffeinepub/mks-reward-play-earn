@@ -104,7 +104,7 @@ export default function AdBanner() {
               📢 Advertisement Space
             </p>
             <p className="text-white/70 text-xs md:text-sm mt-1 drop-shadow-lg">
-              Support MKS Reward by viewing ads
+              Support MKS Rewards by viewing ads
             </p>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function AdBanner() {
         <div className="flex items-center justify-center gap-2">
           <AlertCircle className="w-3 h-3 text-white/60" />
           <p className="text-white/80 text-xs text-center">
-            Support MKS Reward
+            Support MKS Rewards
           </p>
         </div>
       </div>

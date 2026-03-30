@@ -32,8 +32,8 @@ export default function ReferralModal({
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "MKS Reward - Play & Earn",
-        text: `Join MKS Reward and start earning! Use my referral code: ${referralCode}`,
+        title: "MKS Rewards - Play & Earn",
+        text: `Join MKS Rewards and start earning! Use my referral code: ${referralCode}`,
       });
     } else {
       handleCopy();

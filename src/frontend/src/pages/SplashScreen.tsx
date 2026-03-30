@@ -37,7 +37,7 @@ export default function SplashScreen() {
         >
           <img
             src="/assets/generated/mks-reward-logo.dim_400x400.png"
-            alt="MKS Reward Logo"
+            alt="MKS Rewards Logo"
             className="w-80 h-80 object-contain drop-shadow-2xl animate-float"
           />
         </div>

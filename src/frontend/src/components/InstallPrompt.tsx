@@ -50,7 +50,7 @@ export default function InstallPrompt() {
             <Download className="h-5 w-5 text-white" />
           </div>
           <div className="flex-1 space-y-2">
-            <h3 className="font-bold text-white">Install MKS Reward App</h3>
+            <h3 className="font-bold text-white">Install MKS Rewards App</h3>
             <p className="text-sm text-gray-300">
               Install the app on your home screen for a better experience!
             </p>

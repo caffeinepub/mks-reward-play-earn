@@ -26,10 +26,12 @@ export default function AuthPage() {
         <CardHeader className="text-center pb-2">
           <img
             src="/assets/generated/mks-reward-logo.dim_400x400.png"
-            alt="MKS Reward"
+            alt="MKS Rewards"
             className="w-28 h-28 mx-auto mb-3"
           />
-          <CardTitle className="text-3xl text-white mb-1">MKS Reward</CardTitle>
+          <CardTitle className="text-3xl text-white mb-1">
+            MKS Rewards
+          </CardTitle>
           <p className="text-cyan-400 text-lg font-medium">Play & Earn 🎮💰</p>
           <p className="text-white/60 mt-2 text-sm">
             Enter your Gmail to continue

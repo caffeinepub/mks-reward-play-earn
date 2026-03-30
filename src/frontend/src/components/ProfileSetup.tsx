@@ -23,11 +23,11 @@ export default function ProfileSetup() {
         <CardHeader className="text-center">
           <img
             src="/assets/generated/mks-reward-logo.dim_400x400.png"
-            alt="MKS Reward"
+            alt="MKS Rewards"
             className="w-32 h-32 mx-auto mb-4"
           />
           <CardTitle className="text-2xl text-white">
-            Welcome to MKS Reward! 🎉
+            Welcome to MKS Rewards! 🎉
           </CardTitle>
           <p className="text-white/70 mt-2">
             Set up your profile and start earning
