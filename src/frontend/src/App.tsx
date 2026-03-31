@@ -2,8 +2,25 @@ import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 import InstallPrompt from "./components/InstallPrompt";
 import { Toaster } from "./components/ui/sonner";
+import { useAuth } from "./hooks/useAuth";
+import AuthPage from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
 import SplashScreen from "./pages/SplashScreen";
+
+function AppContent() {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <AuthPage />;
+  }
+
+  return (
+    <>
+      <InstallPrompt />
+      <Dashboard />
+    </>
+  );
+}
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -37,8 +54,7 @@ export default function App() {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-      <InstallPrompt />
-      <Dashboard />
+      <AppContent />
       <Toaster />
     </ThemeProvider>
   );
