@@ -1,4 +1,4 @@
-import { Mail, Zap } from "lucide-react";
+import { Loader2, Mail, Zap } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../components/ui/button";
 import {
@@ -9,11 +9,15 @@ import {
 } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
+import { useActor } from "../hooks/useActor";
 import { useAuth } from "../hooks/useAuth";
 
 export default function AuthPage() {
   const [gmail, setGmail] = useState("");
   const { loginWithGmail, isLoading } = useAuth();
+  const { actor, isFetching } = useActor();
+
+  const isSystemReady = !!actor && !isFetching;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +43,13 @@ export default function AuthPage() {
         </CardHeader>
 
         <CardContent className="pt-4">
+          {!isSystemReady && !isLoading && (
+            <div className="flex items-center justify-center gap-2 mb-4 text-yellow-400 text-sm">
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Connecting to server... please wait
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <Label
@@ -66,12 +77,20 @@ export default function AuthPage() {
             <Button
               type="submit"
               data-ocid="auth.submit_button"
-              disabled={isLoading || !gmail.trim()}
+              disabled={isLoading || !gmail.trim() || !isSystemReady}
               className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-gray-900 font-bold text-lg h-12 disabled:opacity-50 transition-all"
               style={{ touchAction: "manipulation" }}
             >
               {isLoading ? (
-                "Connecting..."
+                <span className="flex items-center justify-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Connecting...
+                </span>
+              ) : !isSystemReady ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Loading...
+                </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
                   <Zap className="w-5 h-5" />

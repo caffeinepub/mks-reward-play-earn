@@ -36,17 +36,34 @@ export function useAuth() {
   // Gmail-only login: auto create account if not exists, then log in
   const loginWithGmail = async (email: string) => {
     if (!actor) {
-      toast.error("System not ready. Please try again.");
+      toast.error(
+        "System is still loading. Please wait a moment and try again.",
+      );
+      return;
+    }
+
+    if (!email || !email.includes("@")) {
+      toast.error("Please enter a valid Gmail address.");
       return;
     }
 
     setIsLoading(true);
     try {
-      const exists = await actor.checkEmailRegistered(email);
+      let exists = false;
+      try {
+        exists = await actor.checkEmailRegistered(email);
+      } catch {
+        exists = false;
+      }
 
       if (!exists) {
         // Auto-create account
-        await actor.createGmailAccount(email, INTERNAL_TOKEN);
+        try {
+          await actor.createGmailAccount(email, INTERNAL_TOKEN);
+        } catch (createErr: any) {
+          // If creation fails but account might already exist, continue
+          console.warn("Account creation warning:", createErr);
+        }
       }
 
       // Log in
@@ -59,7 +76,9 @@ export function useAuth() {
       }
     } catch (error: any) {
       console.error("Login error:", error);
-      toast.error("Something went wrong. Please try again.");
+      toast.error(
+        "Connection error. Please check your internet and try again.",
+      );
     } finally {
       setIsLoading(false);
     }
