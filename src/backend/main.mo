@@ -420,12 +420,12 @@ actor {
   public query ({ caller }) func getLiveStatus() : async LiveStatus {
     // No authorization check - open to all users including guests
     {
-      authenticationSystem = "ACTIVE_उत्कृष्ट";
-      adSystem = "ACTIVE_उत्कृष्ट";
-      leaderboard = "ACTIVE_उत्कृष्ट";
-      referralSystem = "ACTIVE_उत्कृष्ट";
-      backendConnection = "ACTIVE_उत्कृष्ट";
-      overallStatus = "ACTIVE_उत्कृष्ट";
+      authenticationSystem = "ACTIVE";
+      adSystem = "ACTIVE";
+      leaderboard = "ACTIVE";
+      referralSystem = "ACTIVE";
+      backendConnection = "ACTIVE";
+      overallStatus = "ACTIVE";
     };
   };
 };
